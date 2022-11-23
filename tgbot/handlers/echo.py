@@ -16,17 +16,14 @@ async def choose_fund_fist_type(call: types.CallbackQuery):
     text = [
         f'так ты выбрал направление {funsd.get("first_fund_type").get("type_name")}, теперь выбирем сам фонд',
     ]
-    await call.message.answer_photo(photo=funsd.get("first_fund_type").get("photo"))
-    await call.message.answer('\n'.join(text), reply_markup=ikb_first_type_funds)
+    await call.message.answer_photo(photo=funsd.get("first_fund_type").get("photo"),reply_markup=ikb_first_type_funds,caption='\n'.join(text))
 
 
 async def choose_fund_second_type(call: types.CallbackQuery):
     text = [
         f'так ты выбрал тнаправлению {funsd.get("second_fund_type").get("type_name")}, теперь выбирем сам фонд',
     ]
-    await call.message.answer_photo(photo=funsd.get("second_fund_type").get("photo"))
-    await call.message.answer('\n'.join(text), reply_markup=ikb_second_type_funds)
-
+    await call.message.answer_photo(photo=funsd.get("second_fund_type").get("photo"),reply_markup=ikb_second_type_funds,caption='\n'.join(text))
 
 async def fist_type_first_fund(call: types.CallbackQuery):
     text = [
@@ -57,11 +54,6 @@ async def second_type_second_fund(call: types.CallbackQuery):
 
 async def delete(call: types.CallbackQuery):
     await call.message.delete()
-    await call.message.delete()
-
-# async def send_photo(massage: Message,):
-#     await massage.reply("fsadfsdafsd")
-#     await massage.answer_photo(photo=)
 
 
 def register_echo(dp: Dispatcher):

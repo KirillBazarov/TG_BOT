@@ -1,6 +1,6 @@
 funsd= {
     "first_fund_type": {
-        "type_name": "Онкология",
+        "type_name": "🦞Онкология🦞",
         "first_fund": {
             "name": "first onko fund",
             "info": "info first fund",
@@ -40,4 +40,4 @@ funsd= {
     }
 }
 
-print(funsd.get("sec_fund_type").get("first_fund").get("info"))
+print()
