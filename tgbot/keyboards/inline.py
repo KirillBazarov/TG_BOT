@@ -1,73 +1,93 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-type_dikt = {
-    1: "Онкология",
-    "funds_Onkologia": {"first_fund": "первый для онко ",
-                        "second_fund": "Второй для онко"},
-    "third_fund": "AdVita",
-    2: "Украина",
-    "funds_UKR": {"first_fund": "первый для ук",
-                  "second_fund": "второй для ук"},
-    "third_fund": "третий",
-}
-
+from tgbot_template.tgbot.media.somelol import funsd
 
 ikb_funds = InlineKeyboardMarkup(row_width=2,
                                  inline_keyboard=[
                                      [
-                                         InlineKeyboardButton(text="Онкологический",
-                                                              callback_data="Онкология"),
-                                         InlineKeyboardButton(text="Украина", callback_data="Украина"),
+                                         InlineKeyboardButton(text=funsd.get("first_fund_type").get("type_name"),
+                                                              callback_data=funsd.get("first_fund_type").get(
+                                                                  "type_name")),
+                                         InlineKeyboardButton(funsd.get("second_fund_type").get("type_name"),
+                                                              callback_data=funsd.get("second_fund_type").get(
+                                                                  "type_name")),
+
                                      ]
                                  ])
 
-ikb_fundi_Onkologia = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_Onkologia").get("first_fund"),
-                                                              callback_data=type_dikt.get("funds_Onkologia").get("first_fund")),
-                                         InlineKeyboardButton(text=type_dikt.get("funds_Onkologia").get("second_fund"), callback_data=type_dikt.get("funds_Onkologia").get("second_fund")),
-                                     ]
-                                 ])
+ikb_first_type_funds = InlineKeyboardMarkup(row_width=2,
+                                            inline_keyboard=[
+                                                [
+                                                    InlineKeyboardButton(
+                                                        text=funsd.get("first_fund_type").get("first_fund").get("name"),
+                                                        callback_data=funsd.get("first_fund_type").get(
+                                                            "first_fund").get("name")),
+                                                    InlineKeyboardButton(
+                                                        text=(funsd.get("first_fund_type").get("second_fund").get(
+                                                            "name")),
+                                                        callback_data=(
+                                                            funsd.get("first_fund_type").get("second_fund").get(
+                                                                "name"))),
+                                                    InlineKeyboardButton(
+                                                        text="обратно",
+                                                        callback_data="stepback"),
+                                                ]
+                                              ]
+                                            )
 
-ikb_fundi_UKR = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_UKR").get("first_fund"),
-                                                              callback_data=type_dikt.get("funds_UKR").get("first_fund")),
-                                         InlineKeyboardButton(text=type_dikt.get("funds_UKR").get("second_fund"), callback_data=type_dikt.get("funds_UKR").get("second_fund")),
-                                     ]
-                                 ])
+ikb_second_type_funds = InlineKeyboardMarkup(row_width=2,
+                                             inline_keyboard=[
+                                                 [
+                                                     InlineKeyboardButton(
+                                                         text=funsd.get("second_fund_type").get("first_fund").get(
+                                                             "name"),
+                                                         callback_data=funsd.get("second_fund_type").get(
+                                                             "first_fund").get(
+                                                             "name")),
+                                                     InlineKeyboardButton(
+                                                         text=funsd.get("second_fund_type").get("second_fund").get(
+                                                             "name"),
+                                                         callback_data=funsd.get("second_fund_type").get(
+                                                             "second_fund").get(
+                                                             "name")),
+                                                 ]
+                                             ])
 
- # нужно поменять колбеки
-ikb_fund_Onkologia_1 = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_Onkologia").get("first_fund"),
-                                                              callback_data=type_dikt.get()),
-                                     ]
-                                 ])
+ikb_fist_type_first_fund = InlineKeyboardMarkup(row_width=2,
+                                                inline_keyboard=[
+                                                    [
+                                                        InlineKeyboardButton(
+                                                            text=funsd.get("first_fund_type").get("first_fund").get(
+                                                                "info"),
+                                                            callback_data="lol"),
+                                                    ]
+                                                ])
 
-ikb_fund_Onkologia_2 = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_Onkologia").get("second_fund"),
-                                                              callback_data="инфа по фонду 1_2"),
-                                     ]
-                                 ])
+ikb_fist_type_second_fund = InlineKeyboardMarkup(row_width=2,
+                                                 inline_keyboard=[
+                                                     [
+                                                         InlineKeyboardButton(
+                                                             text=funsd.get("first_fund_type").get("second_fund").get(
+                                                                 "info"),
+                                                             callback_data="lol"),
+                                                     ]
+                                                 ])
 
-ikb_fund_UKR_1 = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_UKR").get("first_fund"),
-                                                              callback_data="инфа по фонду 2_1"),
-                                     ]
-                                 ])
+ikb_second_type_first_fund = InlineKeyboardMarkup(row_width=2,
+                                                  inline_keyboard=[
+                                                      [
+                                                          InlineKeyboardButton(
+                                                              text=funsd.get("second_fund_type").get("first_fund").get(
+                                                                  "info"),
+                                                              callback_data="lol"), ]
+                                                  ])
 
-ikb_fund_UKR_2 = InlineKeyboardMarkup(row_width=2,
-                                 inline_keyboard=[
-                                     [
-                                         InlineKeyboardButton(text=type_dikt.get("funds_UKR").get("second_fund"),
-                                                              callback_data="инфа по фонду 2_2"),
-                                     ]
-                                 ])
+ikb_second_type_second_fund = InlineKeyboardMarkup(row_width=2,
+                                                   inline_keyboard=[
+                                                       [
+                                                           InlineKeyboardButton(
+                                                               text=funsd.get("second_fund_type").get(
+                                                                   "second_fund").get("info"),
+                                                               callback_data="lol"), ]
+                                                   ])
+
+
