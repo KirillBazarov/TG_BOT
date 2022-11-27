@@ -4,7 +4,7 @@ from aiogram.types import Message
 from aiogram.utils.markdown import hcode
 from tgbot_template.tgbot.keyboards.inline import ikb_funds, ikb_first_type_funds, ikb_second_type_funds, \
 ikb_fist_type_first_fund, ikb_fist_type_second_fund, ikb_second_type_first_fund , ikb_second_type_second_fund
-from tgbot_template.tgbot.media.mongo import funsd
+from tgbot_template.tgbot.media.data import funsd
 
 
 async def choose_fund_type(message: types.Message):
