@@ -111,6 +111,41 @@ ikb_second_type_funds = InlineKeyboardMarkup(row_width=2,
                                                 ]
                                             ])
 
+ikb_third_type_funds = InlineKeyboardMarkup(row_width=2,
+                                            inline_keyboard=[
+                                                [
+                                                    InlineKeyboardButton(
+                                                        text=funsd.get("third_fund_type").get("first_fund").get("name"),
+                                                        callback_data=funsd.get("third_fund_type").get("first_fund").get("name")),
+                                                ],
+                                                [
+                                                    InlineKeyboardButton(text="Обратно",
+                                                                         callback_data="stepback"),
+                                                ]]
+                                            )
+# ikb_fourth_type_funds = InlineKeyboardMarkup(row_width=2,
+#                                             inline_keyboard=[
+#                                                 [
+#                                                     InlineKeyboardButton(
+#                                                         text=funsd.get("fourth_fund_type").get("first_fund").get("name"),
+#                                                         callback_data=funsd.get("fourth_fund_type").get(
+#                                                             "first_fund").get("name")),
+#                                                     InlineKeyboardButton(
+#                                                         text=funsd.get("fourth_fund_type").get("second_fund").get("name"),
+#                                                         callback_data=funsd.get("third_fund_type").get("second_fund").get("name"))
+#                                                 ],
+                                                # [
+                                                #     InlineKeyboardButton(
+                                                #         text=funsd.get("fourth_fund_type").get("third_fund").get(
+                                                #             "name"),
+                                                #         callback_data=funsd.get("fourth_fund_type").get(
+                                                #             "third_fund").get("name")),
+                                                # ],
+                                                # [
+                                                #     InlineKeyboardButton(text="Обратно",
+                                                #                          callback_data="stepback"),
+                                                # ]])
+
 ikb_fist_type_first_fund = InlineKeyboardMarkup(row_width=2,
                                                 inline_keyboard=[
                                                     [
