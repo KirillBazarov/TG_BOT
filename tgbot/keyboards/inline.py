@@ -1,5 +1,5 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from tgbot_template.tgbot.media.somelol import funsd
+from tgbot_template.tgbot.media.mongo import funsd
 
 ikb_funds = InlineKeyboardMarkup(row_width=2,
                                  inline_keyboard=[[
@@ -60,8 +60,8 @@ ikb_fist_type_first_fund = InlineKeyboardMarkup(row_width=2,
                                                     [
                                                         InlineKeyboardButton(
                                                             text=funsd.get("first_fund_type").get("first_fund").get(
-                                                                "info"),
-                                                            callback_data="lol"),
+                                                                "name"),
+                                                            url=funsd.get("first_fund_type").get("first_fund").get("site")),
                                                     ],
                                                     [
                                                         InlineKeyboardButton(text="Обратно",
@@ -75,7 +75,7 @@ ikb_fist_type_second_fund = InlineKeyboardMarkup(row_width=2,
                                                          InlineKeyboardButton(
                                                              text=funsd.get("first_fund_type").get("second_fund").get(
                                                                  "info"),
-                                                             callback_data="lol"),
+                                                             url=funsd.get("first_fund_type").get("second_fund").get("site")),
                                                      ],
                                                      [
                                                          InlineKeyboardButton(text="Обратно",
@@ -88,8 +88,8 @@ ikb_second_type_first_fund = InlineKeyboardMarkup(row_width=2,
                                                       [
                                                           InlineKeyboardButton(
                                                               text=funsd.get("second_fund_type").get("first_fund").get(
-                                                                  "info"),
-                                                              callback_data="lol"), ],
+                                                                  "name"),
+                                                              url=funsd.get("second_fund_type").get("first_fund").get("site"))],
                                                       [
                                                           InlineKeyboardButton(text="Обратно",
                                                                                callback_data="stepback"),
@@ -101,16 +101,12 @@ ikb_second_type_second_fund = InlineKeyboardMarkup(row_width=2,
                                                        [
                                                            InlineKeyboardButton(
                                                                text=funsd.get("second_fund_type").get(
-                                                                   "second_fund").get("info"),
-                                                               callback_data="lol"), ],
+                                                                   "second_fund").get("name"),
+                                                               url=funsd.get("second_fund_type").get("second_fund").get("site"))],
                                                        [
                                                            InlineKeyboardButton(text="Обратно",
                                                                                 callback_data="stepback"),
                                                        ]
                                                    ])
 
-urlkb = InlineKeyboardMarkup(row_width=2)
-urlButton = InlineKeyboardButton(text='Перейти в блог Skillbox', callback_data='https://skillbox.ru/media/code/')
-urlButton2 = InlineKeyboardButton(text='Перейти к курсам Skillbox', callback_data='https://skillbox.ru/code/')
-urlButton3 = InlineKeyboardButton(text='Обратно', callback_data='stepback')
-urlkb.add(urlButton, urlButton2, urlButton3)
+
