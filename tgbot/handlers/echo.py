@@ -5,8 +5,9 @@ from aiogram.utils.markdown import hcode
 from tgbot_template.tgbot.keyboards.inlinelol.ikb_first_funds import ikb_first_type_funds, ikb_fist_type_first_fund, \
     ikb_fist_type_second_fund, ikb_fist_type_third_fund, ikb_fist_type_fourth_fund, ikb_fist_type_fifth_fund, \
     ikb_fist_type_sixth_fund, ikb_fist_type_seventh_fund, ikb_fist_type_eighth_fund
-from tgbot_template.tgbot.keyboards.inline import ikb_funds, ikb_second_type_funds, \
-    ikb_second_type_first_fund, ikb_second_type_second_fund, ikb_third_type_funds
+from tgbot_template.tgbot.keyboards.inlinelol.ikb_second_funds import ikb_second_type_funds,\
+    ikb_second_type_first_fund ,ikb_second_type_second_fund, ikb_second_type_third_fund, ikb_second_type_fourth_fund
+from tgbot_template.tgbot.keyboards.inline import ikb_funds, ikb_third_type_funds
 from tgbot_template.tgbot.media.data import funsd
 
 
@@ -23,23 +24,6 @@ async def choose_fund_fist_type(call: types.CallbackQuery):
     ]
     await call.message.answer_photo(photo=funsd.get("first_fund_type").get("photo"), reply_markup=ikb_first_type_funds,
                                     caption='\n'.join(text))
-
-
-async def choose_fund_second_type(call: types.CallbackQuery):
-    text = [
-        f'так ты выбрал направлению {funsd.get("second_fund_type").get("type_name")}, теперь выбирем сам фонд',
-    ]
-    await call.message.answer_photo(photo=funsd.get("second_fund_type").get("photo"),
-                                    reply_markup=ikb_second_type_funds, caption='\n'.join(text))
-
-
-async def choose_fund_third_type(call: types.CallbackQuery):
-    text = [
-        f'так ты выбрал направление {funsd.get("third_fund_type").get("type_name")}, теперь выбирем сам фонд',
-    ]
-    await call.message.answer_photo(photo=funsd.get("third_fund_type").get("photo"), reply_markup=ikb_third_type_funds,
-                                    caption='\n'.join(text))
-
 
 async def fist_type_first_fund(call: types.CallbackQuery):
     text = funsd.get("first_fund_type").get("first_fund").get("info")
@@ -76,6 +60,57 @@ async def fist_type_seventh_fund(call: types.CallbackQuery):
 async def fist_type_eighth_fund(call: types.CallbackQuery):
     text = funsd.get("first_fund_type").get("eighth_fund").get("info")
     await call.message.answer(text=text, reply_markup=ikb_fist_type_eighth_fund)
+
+
+
+
+
+
+
+
+
+
+async def choose_fund_second_type(call: types.CallbackQuery):
+    text = [
+        f'так ты выбрал направлению {funsd.get("second_fund_type").get("type_name")}, теперь выбирем сам фонд',
+    ]
+    await call.message.answer_photo(photo=funsd.get("second_fund_type").get("photo"),
+                                    reply_markup=ikb_second_type_funds, caption='\n'.join(text))
+
+async def second_type_first_fund(call: types.CallbackQuery):
+    text = funsd.get("second_fund_type").get("first_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_second_type_first_fund)
+
+
+async def second_type_second_fund(call: types.CallbackQuery):
+    text = funsd.get("second_fund_type").get("second_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_second_type_second_fund)
+
+
+async def second_type_third_fund(call: types.CallbackQuery):
+    text = funsd.get("second_fund_type").get("third_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_second_type_third_fund)
+
+
+async def second_type_fourth_fund(call: types.CallbackQuery):
+    text = funsd.get("second_fund_type").get("fourth_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_second_type_fourth_fund)
+
+
+
+
+
+
+
+async def choose_fund_third_type(call: types.CallbackQuery):
+    text = [
+        f'так ты выбрал направление {funsd.get("third_fund_type").get("type_name")}, теперь выбирем сам фонд',
+    ]
+    await call.message.answer_photo(photo=funsd.get("third_fund_type").get("photo"), reply_markup=ikb_third_type_funds,
+                                    caption='\n'.join(text))
+
+
+
 
 async def second_type_first_fund(call: types.CallbackQuery):
     text = [
@@ -115,11 +150,13 @@ def register_echo(dp: Dispatcher):
     dp.register_callback_query_handler(fist_type_seventh_fund, text="first_fund_type:seventh_fund")
     dp.register_callback_query_handler(fist_type_eighth_fund, text="first_fund_type:eighth_fund")
 
+
+
     dp.register_callback_query_handler(choose_fund_second_type, text=funsd.get("second_fund_type").get("type_name"))
-    dp.register_callback_query_handler(second_type_first_fund,
-                                       text=funsd.get("second_fund_type").get("first_fund").get("name"))
-    dp.register_callback_query_handler(second_type_second_fund,
-                                       text=funsd.get("second_fund_type").get("second_fund").get("name"))
+    dp.register_callback_query_handler(second_type_first_fund, text="second_fund_type:first_fund")
+    dp.register_callback_query_handler(second_type_second_fund, text="second_fund_type:second_fund")
+    dp.register_callback_query_handler(second_type_third_fund, text="second_fund_type:third_fund")
+    dp.register_callback_query_handler(second_type_fourth_fund, text="second_fund_type:fourth_fund")
 
     dp.register_callback_query_handler(choose_fund_third_type, text=funsd.get("third_fund_type").get("type_name"))
 
