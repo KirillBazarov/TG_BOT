@@ -10,6 +10,10 @@ from tgbot_template.tgbot.keyboards.inlinelol.ikb_second_funds import ikb_second
     ikb_second_type_first_fund ,ikb_second_type_second_fund, ikb_second_type_third_fund, ikb_second_type_fourth_fund
 
 from tgbot_template.tgbot.keyboards.inlinelol.ikb_third_funds import ikb_third_type_funds, ikb_third_type_first_fund
+
+from tgbot_template.tgbot.keyboards.inlinelol.ikb_fourth_funds4 import ikb_fourth_type_first_fund, ikb_fourth_type_second_fund,\
+    ikb_fourth_type_funds, ikb_fourth_type_third_fund
+
 from tgbot_template.tgbot.keyboards.inline import ikb_funds
 from tgbot_template.tgbot.media.data import funsd
 
@@ -120,6 +124,33 @@ async def third_type_first_fund(call: types.CallbackQuery):
 
 
 
+
+
+async def choose_fund_fourth_type(call: types.CallbackQuery):
+    text = [
+        f'так ты выбрал направление {funsd.get("fourth_fund_type").get("type_name")}, теперь выбирем сам фонд',
+    ]
+    await call.message.answer_photo(photo=funsd.get("fourth_fund_type").get("photo"), reply_markup=ikb_fourth_type_funds,
+                                    caption='\n'.join(text))
+
+
+async def fourth_type_first_fund(call: types.CallbackQuery):
+    text = funsd.get("fourth_fund_type").get("first_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_fourth_type_first_fund)
+
+
+async def fourth_type_second_fund(call: types.CallbackQuery):
+    text = funsd.get("fourth_fund_type").get("second_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_fourth_type_second_fund)
+
+
+async def fourth_type_third_fund(call: types.CallbackQuery):
+    text = funsd.get("fourth_fund_type").get("third_fund").get("info")
+    await call.message.answer(text=text, reply_markup=ikb_fourth_type_third_fund)
+
+
+
+
 async def delete(call: types.CallbackQuery):
     await call.message.delete()
 
@@ -155,5 +186,10 @@ def register_echo(dp: Dispatcher):
 
     dp.register_callback_query_handler(choose_fund_third_type, text=funsd.get("third_fund_type").get("type_name"))
     dp.register_callback_query_handler(third_type_first_fund, text="third_fund_type:first_fund")
+
+    dp.register_callback_query_handler(choose_fund_fourth_type, text=funsd.get("fourth_fund_type").get("type_name"))
+    dp.register_callback_query_handler(fourth_type_first_fund, text="fourth_fund_type:first_fund")
+    dp.register_callback_query_handler(fourth_type_second_fund, text="fourth_fund_type:second_fund")
+    dp.register_callback_query_handler(fourth_type_third_fund, text="fourth_fund_type:third_fund")
 
     dp.register_callback_query_handler(delete, text="обратно")
