@@ -147,6 +147,7 @@ ikb_fist_type_seventh_fund = InlineKeyboardMarkup(row_width=2,
                                                          stepback_button,
                                                      ]
                                                  ])
+
 ikb_fist_type_eighth_fund = InlineKeyboardMarkup(row_width=2,
                                                 inline_keyboard=[
                                                      [
