@@ -14,6 +14,7 @@ async def choose_fund_fist_type(call: types.CallbackQuery):
                                     reply_markup=ikb_first_type_funds,
                                     caption='\n'.join(text))
 
+
 async def choose_fund_second_type(call: types.CallbackQuery):
     text = [tm_for_napravlenie.render(napravlenie=funsd.get("second_fund_type").get("type_name"))]
     await call.message.answer_photo(photo=funsd.get("second_fund_type").get("photo"),

@@ -2,7 +2,7 @@ import typing
 
 from aiogram.dispatcher.filters import BoundFilter
 
-from tgbot.config import Config
+from tgbot_template.tgbot.config import Config
 
 
 class AdminFilter(BoundFilter):
@@ -16,4 +16,3 @@ class AdminFilter(BoundFilter):
             return False
         config: Config = obj.bot.get('config')
         return (obj.from_user.id in config.tg_bot.admin_ids) == self.is_admin
-

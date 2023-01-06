@@ -1,6 +1,5 @@
-from aiogram import types, Dispatcher
+from aiogram import Dispatcher
 
-from tgbot_template.tgbot.handlers.funds.second import second_type_first_fund
 from tgbot_template.tgbot.templates.texts import *
 from tgbot_template.tgbot.keyboards.inline import ikb_funds
 from tgbot_template.tgbot.handlers.choose_funds import *
@@ -8,6 +7,7 @@ from tgbot_template.tgbot.handlers.funds.first import *
 from tgbot_template.tgbot.handlers.funds.second import *
 from tgbot_template.tgbot.handlers.funds.third import *
 from tgbot_template.tgbot.handlers.funds.fourth import *
+
 
 async def choose_fund_type(message: types.Message):
     await message.answer('\n'.join([go_text]), reply_markup=ikb_funds)
