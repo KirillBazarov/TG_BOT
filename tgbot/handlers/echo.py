@@ -1,8 +1,8 @@
 from aiogram import Dispatcher
 
 from tgbot_template.tgbot.templates.texts import *
-from tgbot_template.tgbot.keyboards.inline import ikb_funds
-from tgbot_template.tgbot.handlers.choose_funds import *
+from tgbot_template.tgbot.keyboards.inline_funds.all_funds import ikb_funds
+from tgbot_template.tgbot.handlers.funds.choose_funds import *
 from tgbot_template.tgbot.handlers.funds.first import *
 from tgbot_template.tgbot.handlers.funds.second import *
 from tgbot_template.tgbot.handlers.funds.third import *

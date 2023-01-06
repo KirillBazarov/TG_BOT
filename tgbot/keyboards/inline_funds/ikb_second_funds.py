@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from tgbot_template.tgbot.media.data import funsd
-from tgbot_template.tgbot.keyboards.inline import stepback_button
+from tgbot_template.tgbot.keyboards.stepback import stepback_button
 from aiogram.utils.callback_data import CallbackData
 
 idk_second_type_get_name = CallbackData("second_fund_type", "fund_number")

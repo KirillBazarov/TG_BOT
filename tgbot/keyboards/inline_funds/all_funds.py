@@ -2,7 +2,6 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from tgbot_template.tgbot.media.data import funsd
 
-stepback_button = InlineKeyboardButton(text="Обратно", callback_data="обратно")
 
 ikb_funds = InlineKeyboardMarkup(row_width=2,
                                  inline_keyboard=[[
